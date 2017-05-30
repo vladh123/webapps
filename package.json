@@ -1,0 +1,21 @@
+{
+  "name": "webapps_25",
+  "version": "1.0.0",
+  "description": "Webapp project for group 25",
+  "main": "hello.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.doc.ic.ac.uk:lab1617_summer/webapps_25.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}

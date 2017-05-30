@@ -14,7 +14,4 @@ cache:
 
 all_tests:
   script:
-   - npm install
-   - node ./tests/startTests.js 
-
-
+   - npm test

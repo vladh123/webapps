@@ -17,10 +17,8 @@ all_tests:
    - npm install
    - npm test
 
-before_script:
-  - docker info
 
 deploy:
   script:
-   - docker build -t web-app .
-   - docker run -p 49491:1337 -d web-app 
+   - sudo docker build -t web-app .
+   - sudo docker run -p 49491:1337 -d web-app 

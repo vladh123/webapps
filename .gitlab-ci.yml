@@ -1,24 +1,29 @@
+image: node:7.10.0
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
 services:
   - postgres:latest
-  - docker:dind
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
   - node_modules/
 
-all_tests:
-  image: node:7.10.0
-  script:
-   - npm install
-   - npm test
+stages:
+  - test
+  - deploy
 
+all_tests:
+  stage: test
+  script:
+    - npm install
+    - npm test
 
 deploy:
-  image: docker:latest
-  script:
-   - docker build -t web-app .
-   - docker run -p 49491:1337 -d web-app 
+  stage: deploy
+  script: 
+    - gem install dpl
+    - dpl --provider=heroku --api-key=$HEROKU_STAGING_API_KEY 
+
+

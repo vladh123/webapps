@@ -17,5 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.4"
   }
 }

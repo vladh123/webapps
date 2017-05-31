@@ -19,5 +19,5 @@ http.createServer((request, response) => {
     // 3. Tell the server that all of the response headers and body have been sent
     response.end();
 
-}).listen(1337); // 4. Tells the server what port to be on
+}).listen(process.env.PORT || 1337); // 4. Tells the server what port to be on
 

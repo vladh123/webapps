@@ -16,3 +16,8 @@ all_tests:
   script:
    - npm install
    - npm test
+
+deploy:
+  script:
+   - docker build -t web-app .
+   - docker run -p 49491:1337 -d web-app 

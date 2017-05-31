@@ -11,11 +11,13 @@ cache:
   - node_modules/
 
 all_tests:
+  image: node:7.10.0
   script:
    - npm install
    - npm test
 
 deploy:
+  image: docker:latest
   script:
    - docker build -t web-app .
    - docker run -p 49491:1337 -d web-app 

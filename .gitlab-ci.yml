@@ -1,4 +1,6 @@
+image: docker:latest
 # Pick zero or more services to be used on all builds.
+  script:
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
 services:
@@ -16,8 +18,10 @@ all_tests:
    - npm install
    - npm test
 
+before_script:
+  - docker info
+
 deploy:
-  image: docker:latest
   script:
    - docker build -t web-app .
    - docker run -p 49491:1337 -d web-app 

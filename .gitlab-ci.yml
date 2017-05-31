@@ -21,6 +21,7 @@ all_tests:
     - npm test
 
 deploy:
+  image: ruby:2.1
   stage: deploy
   script: 
     - gem install dpl
